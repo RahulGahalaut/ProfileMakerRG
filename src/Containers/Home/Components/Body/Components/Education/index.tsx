@@ -9,7 +9,7 @@ const Education = () => {
     <InfoWrapper id={"education"}>
       <div className="flex flex-col gap-4">
         <Heading>Learn before execution</Heading>
-        <Article className="flex flex-col gap-4">
+        <Article>
           <section>
             <WorkOrLearningPlace
               title={"B.Tech (IT)"}

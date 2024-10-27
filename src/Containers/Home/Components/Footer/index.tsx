@@ -47,7 +47,7 @@ const ContactLinks = ({ href, Icon, text }) => {
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-12 text-white md:w-full md:h-full bg-purple-900/70">
+    <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-12 text-white md:w-full md:h-full bg-purple-900/70 md:bg-transparent">
       {linksData.map((linksData) => (
         <ContactLinks {...linksData} />
       ))}
@@ -58,43 +58,44 @@ const Contacts = () => {
 const Footer = () => {
   const [showContact, setShowContact] = useState(false);
 
-  return IS_MOBILE ? (
-    <div className="fixed right-4 bottom-4">
-      {showContact ? (
-        <>
-          <dialog
-            open={true}
-            className="flex flex-col rounded-lg bottom-[120%] left-[-500%] overflow-hidden"
-            onClick={() => setShowContact(false)}
-          >
-            <Contacts />
-          </dialog>
-          <ArrowDropDown
-            fontSize="large"
-            className="absolute bottom-[70%] right-[8%] text-white/70"
-          />
-          <div className="px-2 py-2 bg-slate-900/40 rounded-full">
-            <KeyboardDoubleArrowDownIcon
-              fontSize={"medium"}
+  return (
+    <>
+      <div className="fixed right-4 bottom-4 md:hidden">
+        {showContact ? (
+          <>
+            <dialog
+              open={true}
+              className="flex flex-col rounded-lg bottom-[120%] left-[-500%] overflow-hidden"
               onClick={() => setShowContact(false)}
+            >
+              <Contacts />
+            </dialog>
+            <ArrowDropDown
+              fontSize="large"
+              className="absolute bottom-[70%] right-[8%] text-white/70"
+            />
+            <div className="px-2 py-2 bg-slate-900/40 rounded-full">
+              <KeyboardDoubleArrowDownIcon
+                fontSize={"medium"}
+                onClick={() => setShowContact(false)}
+                className="text-white"
+              />
+            </div>
+          </>
+        ) : (
+          <div className="px-2 py-2 bg-slate-900/40 rounded-full animate-bounce">
+            <PersonAddAlt1Icon
+              fontSize="medium"
+              onClick={() => setShowContact(true)}
               className="text-white"
             />
           </div>
-        </>
-      ) : (
-        <div className="px-2 py-2 bg-slate-900/40 rounded-full animate-bounce">
-          <PersonAddAlt1Icon
-            fontSize="medium"
-            onClick={() => setShowContact(true)}
-            className="text-white"
-          />
-        </div>
-      )}
-    </div>
-  ) : (
-    <footer className="h-0 md:h-[10%] w-full bg-slate-900/90">
-      <Contacts />
-    </footer>
+        )}
+      </div>
+      <footer className="h-0 md:h-[8%] w-full bg-slate-900/90 hidden md:flex">
+        <Contacts />
+      </footer>
+    </>
   );
 };
 

@@ -50,31 +50,29 @@ const Header = () => {
 
   const renderMenuBar = () => {
     return (
-      IS_MOBILE && (
-        <div className="relative">
-          {showMenuDropdown ? (
-            <>
-              <Close
-                onClick={() => setShowMenuDropdown(false)}
-                className="cursor-pointer"
-              />
-              <ArrowDropUp className="absolute top-[14px] left-[-0.5px]" />
-              <dialog
-                open={true}
-                className="flex flex-col rounded-lg top-[120%] left-[-8px] overflow-hidden"
-                onClick={() => setShowMenuDropdown(false)}
-              >
-                <NavLinks />
-              </dialog>
-            </>
-          ) : (
-            <MenuIcon
+      <div className="relative md:hidden">
+        {showMenuDropdown ? (
+          <>
+            <Close
+              onClick={() => setShowMenuDropdown(false)}
               className="cursor-pointer"
-              onClick={() => setShowMenuDropdown(true)}
             />
-          )}
-        </div>
-      )
+            <ArrowDropUp className="absolute top-[14px] left-[-0.5px]" />
+            <dialog
+              open={true}
+              className="flex flex-col rounded-lg top-[120%] left-[-8px] overflow-hidden"
+              onClick={() => setShowMenuDropdown(false)}
+            >
+              <NavLinks />
+            </dialog>
+          </>
+        ) : (
+          <MenuIcon
+            className="cursor-pointer"
+            onClick={() => setShowMenuDropdown(true)}
+          />
+        )}
+      </div>
     );
   };
 
@@ -86,7 +84,9 @@ const Header = () => {
           <a href="#about" className="font-medium">
             RAHUL GAHALAUT
           </a>
-          {!IS_MOBILE && <NavLinks />}
+          <div className="hidden md:flex">
+            <NavLinks />
+          </div>
         </nav>
         <button className="bg-black px-2 md:px-4 py-1 rounded-lg shadow-white shadow-sm hover:shadow-lg ">
           RESUME
