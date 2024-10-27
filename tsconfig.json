@@ -1,0 +1,27 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+      "strict": true,
+      "esModuleInterop": true,
+      "noImplicitAny": false,
+      "lib": ["dom", "es2015"],
+      "jsx": "react-jsx",
+      "baseUrl": ".",
+      "paths": {
+        "@/Assets/*": ["src/Assets/*"],
+        "@/CommomElements/*": ["src/CommonElements/*"],
+        "@/Components/*": ["src/Components/*"],
+        "@/Config/*": ["src/Config/*"],
+        "@/Constants/*": ["src/Constants/*"],
+        "@/Containers/*": ["src/Containers/*"],
+        "@/HOC/*": ["src/HOC/*"],
+        "@/Hooks/*": ["src/Hooks/*"],
+        "@/Redux/*": ["src/Redux/*"],
+        "@/Services/*": ["src/Services/*"],
+        "@/Types/*": ["src/Types/*"],
+        "@/Utils/*": ["src/Utils/*"]
+      }
+    }
+}
