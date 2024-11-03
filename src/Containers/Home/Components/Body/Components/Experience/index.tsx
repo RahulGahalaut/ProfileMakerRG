@@ -14,6 +14,7 @@ const Experience = () => {
             <WorkOrLearningPlace
               title={"Software Engineer"}
               place={"BYJU'S"}
+              href="https://byjus.com/"
               abbr={"Think and Learn Private Limited"}
               start={"June 2022"}
               end={"March 2023"}
@@ -46,7 +47,7 @@ const Experience = () => {
               title={"SDE-1"}
               place={"DotPe"}
               abbr={"DotPe Private Limited"}
-              start={"October 2022"}
+              start={"October 2023"}
               end={new Intl.DateTimeFormat("en-US", {
                 month: "long",
                 year: "numeric",

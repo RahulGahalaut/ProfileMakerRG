@@ -2,7 +2,7 @@ import useWriter from "@/Hooks/useWriter"
 import { useEffect } from "react";
 
 const WriteablePara = ({para, onParaComplete, writeSpeed=50}) => {
-    const {writeableString, isWritingComplete} = useWriter(para, writeSpeed);
+    const {writtenString, remaningString, isWritingComplete} = useWriter(para, writeSpeed);
 
     useEffect(() => {
         if(isWritingComplete){
@@ -12,8 +12,9 @@ const WriteablePara = ({para, onParaComplete, writeSpeed=50}) => {
 
     return (
       <span>
-        {writeableString}
+        {writtenString}
         {!isWritingComplete && "|"}
+        <span className="invisible">{remaningString}</span>
       </span>
     );
 }

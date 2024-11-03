@@ -25,7 +25,7 @@ const Paragraph = (props: ParagraphProps) => {
   return (
     <p className={`text-base md:text-lg text-yellow-300/70 ${customClasses}`}>
       {canShowWriteEffect() ? (
-        <WriteablePara para={children} onParaComplete={onParaComplete} />
+        <WriteablePara para={children} onParaComplete={onParaComplete} writeSpeed={writeSpeed}/>
       ) : (
         children
       )}
